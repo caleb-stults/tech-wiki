@@ -1,0 +1,9 @@
+site_name: Tech Wiki
+nav:
+  - Home: index.md
+  - Markdown Help: markdown-help.md
+  - Media Center:
+    - Emby: movie-pipeline/Emby/how-to-use.md
+theme: 
+  name: mkdocs
+  color_mode: dark
