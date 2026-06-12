@@ -1,4 +1,5 @@
 site_name: Tech Wiki
+site_url: https://wiki.hoss-movies.com/
 nav:
   - Home: index.md
   - Infrastructure:
