@@ -12,9 +12,12 @@ nav:
       - Introduction: homelab-maintenance/index.md
 theme: 
   name: material
-  favicon: docs/images/favicon.png
+  favicon: images/favicon.png
+  logo: images/favicon.png
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
     - navigation.indexes
     - navigation.top
   palette:
