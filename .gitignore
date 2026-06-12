@@ -1,1 +1,23 @@
-echo "site/" >> .gitignore
+# MkDocs build directory
+/site/
+
+# Python cache (if you use plugins or local virtual environments)
+__pycache__/
+*.py[cod]
+
+# Environment files
+.venv/
+env/
+venv/
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
+
+# IDE/Editor specific settings
+.vscode/
+.idea/
+
+# Local build logs or temporary files
+*.log
+*.tmp

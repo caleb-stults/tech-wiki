@@ -1,17 +1,22 @@
-# Tech Wiki
+# Tech Knowledge Base
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Welcome to my personal technical documentation. This wiki serves as a centralized repository for my infrastructure projects, workflow configurations, and ongoing technical learnings. 
 
-## Commands
+## Active Projects
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+### 🎥 Media Infrastructure Pipeline
+A robust, automated pipeline for managing high-quality media.
+* **[Emby & NAS Storage](movie-pipeline/emby/setup.md)**: Server deployment and NFS networking.
+* **[MakeMKV Ripping](movie-pipeline/makemkv/ripping.md)**: UHD/4K disc processing.
+* **[Handbrake Compression](movie-pipeline/handbrake/compression.md)**: Optimized H.265 transcoding.
+* **[Remote Access](movie-pipeline/emby/tailscale.md)**: Secure remote connectivity via Tailscale.
 
-## Project layout
+### ⚙️ Automation & Scripting
+* **[Scripting Repository](scripting/index.md)**: A collection of bash, python, and ansible playbooks used to manage my server environment.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+---
+
+## Learning Log & Documentation
+This space is also used to document "how-to" guides and technical learnings. 
+
+* **Documentation Strategy**: I follow a "documentation-as-code" approach. Everything here is version-controlled in Git and rendered via MkDocs.
