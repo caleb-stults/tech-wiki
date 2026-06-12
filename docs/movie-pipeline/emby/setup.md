@@ -16,15 +16,16 @@ This is how to install Emby on a Linux server and connect it to an external NAS 
 2. **Client Setup:** `sudo apt install nfs-common`
 3. **Mount Point:** Create directory `sudo mkdir -p /path/to/nas`
 4. **Persistent Mount:** Add to `/etc/fstab`:
-   `[NAS_IP]:/volume1/media /path/to/nas nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0`
+   * `[NAS_IP]:/volume1/media /path/to/nas nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0`
 5. **Verify:** `sudo mount -a`
-6. **Set Permissions** Set the `emby` user to have `755` permissions on the directories within the NFS mount (`sudo chown -R emby:emby /mnt/media`
-`sudo chmod -R 755 /mnt/media`)
+6. **Set Permissions** Set the `emby` user to have `755` permissions on the directories within the NFS mount
+    * `sudo chown -R emby:emby /mnt/media`
+    * `sudo chmod -R 755 /mnt/media`
 7. **Setup NFS Mount on Local Machine**
     * **Windows** 
         * **Enable NFS** Control Panel > Programs > "Turn Windows features on or off" > Check "Services for NFS".
         * **Mount:** Open Command Prompt as Administrator.
-            `mount -o anon \\NAS_IP\volume1\media Z:`
+            * `mount -o anon \\NAS_IP\volume1\media Z:`
     * **Linux**
         * **Install Utils:** `sudo dnf install nfs-utils`
         * **Mount:** `sudo mount -t nfs NAS_IP:/volume1/media /path/to/nas`
