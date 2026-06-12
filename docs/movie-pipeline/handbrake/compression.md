@@ -21,19 +21,25 @@ This is very much an optional step, but one that I would highly recommend if you
 2. **Audio**
     * **DVD**
         * ![**Selection Behavior**](../../images/handbrake-audio-behavior.png)
+        *Selection Behavior*
     * **Blu-Ray**
         * ![**Selection Behavior**](../../images/handbrake-audio-behavior.png)
+        *Selection Behavior*
     * **4k**
         * ![**Selection Behavior**](../../images/handbrake-audio-behavior.png)
+        *Selection Behavior*
 3. **Subtitles**
     * **DVD**
         * ![**Selection Behavior**](../../images/handbrake-subtitle-behavior.png)
+        *Selection Behavior*
         * If you have only foreign audio or will always watch with subtitles, I recommend checking the "Burn In" box.
     * **Blu-Ray**
         * ![**Selection Behavior**](../../images/handbrake-subtitle-behavior.png)
+        *Selection Behavior*
         * If you have only foreign audio or will always watch with subtitles, I recommend checking the "Burn In" box.
     * **4k**
         * ![**Selection Behavior**](../../images/handbrake-subtitle-behavior.png)
+        *Selection Behavior*
         * If you have only foreign audio or will always watch with subtitles, I recommend checking the "Burn In" box.
 
 ## Workflow

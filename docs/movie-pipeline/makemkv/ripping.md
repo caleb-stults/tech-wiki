@@ -14,4 +14,6 @@ I use MakeMKV to create a .mkv containter of the film or show I'm wanting. I jus
 
 ## Ripping Reminders
 * ![Select your local machine path to save the file](../../images/makemkv-path.png)
+*Select your local machine path to save the file*
 * ![Check the Enable Internet access box to bring in new decryption keys](../../images/makemkv-internet.png)
+*Check the Enable Internet access box to bring in new decryption keys*

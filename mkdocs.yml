@@ -2,13 +2,12 @@ site_name: Tech Wiki
 site_url: https://wiki.hoss-movies.com/
 nav:
   - Home: index.md
-  - Infrastructure:
+  - Emby Server:
       - Emby Setup: movie-pipeline/emby/setup.md
-      - Emby Remote Access: movie-pipeline/emby/tailscale.md
-      - Library Management: movie-pipeline/emby/library-management.md
-  - Media Workflow:
       - Ripping (MakeMKV): movie-pipeline/makemkv/ripping.md
       - Compression (HandBrake): movie-pipeline/handbrake/compression.md
+      - Emby Remote Access: movie-pipeline/emby/tailscale.md
+      - Library Management: movie-pipeline/emby/library-management.md
   - Homelab Maintenance:
       - Introduction: homelab-maintenance/index.md
 theme: 
