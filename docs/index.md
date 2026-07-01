@@ -12,7 +12,7 @@ A robust, automated pipeline for managing high-quality media.
 * **[Remote Access](movie-pipeline/emby/tailscale.md)**: Secure remote connectivity via Tailscale.
 
 ### Automation & Scripting
-* **[Scripting Repository](scripting/index.md)**: A collection of bash, python, and ansible playbooks used to manage my server environment.
+* **[Homelab Maintenance](homelab-maintenance/index.md)**: Ansible playbooks created to manange my homelab infrastruacture.
 
 ---
 

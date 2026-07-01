@@ -10,6 +10,9 @@ nav:
       - Library Management: movie-pipeline/emby/library-management.md
   - Homelab Maintenance:
       - Introduction: homelab-maintenance/index.md
+      - Overview: homelab/index.md
+      - Workflows: homelab/workflow.md
+      - Troubleshooting: homelab/troubleshooting.md
 theme: 
   name: material
   favicon: images/favicon.png
