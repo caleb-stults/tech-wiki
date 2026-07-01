@@ -5,7 +5,7 @@ Welcome to my personal technical documentation. This wiki serves as a centralize
 ## Active Projects
 
 ### Media Infrastructure Pipeline
-A robust, automated pipeline for managing high-quality media.
+A robust, automated pipeline for managing high-quality media.  
 * **[Emby & NAS Storage](movie-pipeline/emby/setup.md)**: Server deployment and NFS networking.  
 * **[MakeMKV Ripping](movie-pipeline/makemkv/ripping.md)**: UHD/4K disc processing.  
 * **[Handbrake Compression](movie-pipeline/handbrake/compression.md)**: Optimized H.265 transcoding.  

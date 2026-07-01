@@ -9,10 +9,12 @@ nav:
       - Emby Remote Access: movie-pipeline/emby/tailscale.md
       - Library Management: movie-pipeline/emby/library-management.md
   - Homelab Maintenance:
-      - Introduction: homelab-maintenance/index.md
-      - Overview: homelab-maintenance/overview.md
+      - Overview: homelab-maintenance/index.md
       - Workflows: homelab-maintenance/workflow.md
       - Troubleshooting: homelab-maintenance/troubleshooting.md
+  - Linux Learnings:
+      - Overview: linux-learnings/index.md
+      - SSH and Navigation: linux-learnings/ssh-navigation.md
 theme: 
   name: material
   favicon: images/favicon.png
