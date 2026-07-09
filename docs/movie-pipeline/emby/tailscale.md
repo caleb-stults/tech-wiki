@@ -1,7 +1,7 @@
 # Remote Access: Tailscale Subnet Routing
 
 ## Overview
-This is assuming you do not want your Emby instance exposed to the open Internet and have a Tailscale node installed on the same host server that Emby is running on. The intent of this is that any device on the network can use Emby without having their own Tailscale client on it. If you are looking for something like remote viewing on mobile data via Tailscale, the mobile device would still need the Tailscale app to make that connection. 
+This is assuming you do not want your Emby instance exposed to the open Internet and have a Tailscale node installed on the same host server that Emby is running on. The intent of this is that any device on the network can use Emby without having their own Tailscale client on it. If you are looking for something like remote viewing on mobile data via Tailscale, the mobile device would still need the Tailscale app to make that connection. Don't open your server to the Internet unless you know what you're doing. If you do choose to do this, there is an Emby service called [Emby Connect](https://emby.media/support/articles/Emby-Connect.html) that they offer for help with this, but I have not used it.
 
 ## Setup Tailscale Access For All Devices on Network
 1. Make sure /etc/sysctl.conf has:
