@@ -1,7 +1,30 @@
 # Infrastructure Setup
-This is how to install Emby on a Linux server and connect it to an external NAS via NFS. For my setup I have an Ubuntu server and a Synology DS923 NAS. 
+This is how to install Emby on a Linux server and connect it to an external NAS via NFS. For my setup I have an Ubuntu server and a Synology DS923 NAS. I migrated the Emby installation to a Docker container but originally did bare-metal, so both are outlined below. 
 
-## Emby Server Installation
+## Option 1: Docker Installation (Recommended)
+Using Docker encapsulates the application, making updates and maintenance significantly simpler.
+1. **Install Docker:** 
+```bash
+curl -fsSL https://get.docker.com | sh
+sudo usermod -aG docker $USER
+```
+2. **Deploy Emby:**
+Create a `docker-compose.yml` file:
+```yaml
+services:
+  emby:
+    image: emby/embyserver:4.9.5.0
+    container_name: emby
+    network_mode: host
+    volumes:
+      - /path/to/config:/config
+      - /path/to/nas:/mnt/share
+    restart: unless-stopped
+```
+3. **Start the container:**
+`docker compose up -d`
+
+## Option 2: Native Linux Installation
 * **Version:** 4.9.5.0
 * **OS:** Ubuntu Server 22.04 LTS
 
@@ -19,7 +42,7 @@ This is how to install Emby on a Linux server and connect it to an external NAS 
    * `[NAS_IP]:/volume1/media /path/to/nas nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0`
 5. **Verify:** `sudo mount -a`
 6. **Set Permissions** Set the `emby` user to have `755` permissions on the directories within the NFS mount
-    * `sudo chown -R emby:emby /mnt/media`
+    * `sudo chown -R emby:emby /mnt/media` (Note: Ensure UID/GID matches your container user if using Docker)
     * `sudo chmod -R 755 /mnt/media`
 7. **Setup NFS Mount on Local Machine**
     * **Windows** 

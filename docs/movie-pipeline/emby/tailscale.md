@@ -1,45 +1,9 @@
 # Remote Access: Tailscale Subnet Routing
 
 ## Overview
-My setup allows you to access your Emby server (on Server A) via a Tailscale subnet router (on Server B) without installing Tailscale on the Emby server itself. I have mine setup so that any devices on my network (such as a Chromecast) can utilize the Emby server over the Tailscale connection.
+This is assuming you do not want your Emby instance exposed to the open Internet and have a Tailscale node installed on the same host server that Emby is running on. The intent of this is that any device on the network can use Emby without having their own Tailscale client on it. If you are looking for something like remote viewing on mobile data via Tailscale, the mobile device would still need the Tailscale app to make that connection. 
 
-## 1. Configure the Subnet Router (Server B)
-On the machine running Tailscale that is on the same local network as your Emby server:
-
-1. **Enable IP Forwarding:**
-    * Linux: Run these commands to enable packet forwarding persistently:
-```bash
-     echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf
-     echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf
-     sudo sysctl -p /etc/sysctl.d/99-tailscale.conf
-```
-
-2. **Advertise the Route:**
-    * Run the following command (replace `192.168.1.0/24` with your actual local network subnet):
-```bash
-     sudo tailscale set --advertise-routes=192.168.1.0/24
-```
-
-3. **Enable in Admin Console:**
-    * Log in to your [Tailscale Admin Console](https://login.tailscale.com/admin/machines).
-    * Find your Server B device, click the **three-dot (...) menu** > **Edit route settings**.
-    * Check the box for your subnet and click **Save**.
-
-## 2. Configure Emby (Server A)
-Emby needs to know that requests coming from the Tailscale IP range are "local" to avoid connection issues.
-
-1. Open the Emby Web UI.
-2. Navigate to **Settings** > **Advanced** > **Networking**.
-3. Under **LAN networks**, add the Tailscale subnet mask:
-    * `100.64.0.0/10`
-4. Click **Save**.
-
-## 3. Client Access
-1. Install the Tailscale client on your remote device (laptop, phone, etc.).
-2. Connect to Tailscale.
-3. Access Emby using the internal LAN IP of the Emby server: `http://192.168.1.X:8096`.
-
-## 4. Setup Tailscale Access For All Devices on Network (Optional)
+## Setup Tailscale Access For All Devices on Network
 1. Make sure /etc/sysctl.conf has:
     `net.ipv4.ip_forward=1`
 2. Update the values
@@ -55,3 +19,41 @@ Emby needs to know that requests coming from the Tailscale IP range are "local" 
     sudo apt install iptables-persistent
 ```
 5. Then make a static route for the emby tailscale IP to point to this server you ran these commands on.
+
+## Tailscale Installation (Optional)
+I now have Tailscale installed as a Docker container, but I did have it bare-metal to being. Both instructions are below.
+
+### Method 1: Bare-Metal
+1. **Installation:**
+`curl -fsSL https://tailscale.com/install.sh | sh`
+2. **Authentication:**
+`sudo tailscale up`
+Follow the link provided in the terminal to log in to your Tailscale account.
+
+### Method 2: Docker Container
+1. **Docker Compose Setup**:
+Create a `docker-compose.yml` file:
+```yaml
+services:
+  tailscale:
+    image: tailscale/tailscale:latest
+    container_name: tailscale
+    network_mode: host
+    environment:
+      - TS_STATE_DIR=/var/lib/tailscale
+      # Ensure the node stays active
+      - TS_USERSPACE=false
+    volumes:
+      - ./tailscale_data:/var/lib/tailscale
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    restart: unless-stopped
+```
+2. **Launching and Auth:**
+Start the container:
+`docker compose up -d`
+Because the container runs in the background, you must execute the login command inside the container:
+`docker exec tailscale tailscale up`
+Click the link provided in the output to authorize the containerized node.

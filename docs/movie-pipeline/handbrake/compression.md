@@ -43,6 +43,6 @@ This is very much an optional step, but one that I would highly recommend if you
         * If you have only foreign audio or will always watch with subtitles, I recommend checking the "Burn In" box.
 
 ## Workflow
-1. **Source:** Load file from "Raw" folder.
+1. **Source:** Load file from MakeMKV rip folder.
 2. **Preset:** Select your preset based on what type of file you're compressing.
-3. **Queue:** Add to queue and output to "Staging" folder.
+3. **Queue:** Add to queue and output to "Staging" folder (I just do it into the generic Videos directory so I can either move to existing folder on local machine to override the MakeMKV rip file or existing folder on NAS).

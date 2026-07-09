@@ -20,3 +20,12 @@ A robust, automated pipeline for managing high-quality media.
 This space is also used to document "how-to" guides and technical learnings. 
 
 * **Documentation Strategy**: I follow a "documentation-as-code" approach. Everything here is version-controlled in Git and rendered via MkDocs.
+
+## GitHub Repos:
+* [Creative Writing Blog](https://github.com/caleb-stults/creative-writing-blog)
+* [Emby List Display](https://github.com/caleb-stults/emby-list-display)
+* [Tech Wiki](https://github.com/caleb-stults/tech-wiki)
+* [Homelab Maintenance](https://github.com/caleb-stults/homelab-maintenance)
+* [Emby Container](https://github.com/caleb-stults/emby-container)
+* [Pihole Container](https://github.com/caleb-stults/pihole-container)
+* [Tailscale Container](https://github.com/caleb-stults/tailscale-container)
