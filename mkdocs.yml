@@ -3,6 +3,7 @@ site_url: https://wiki.hoss-movies.com/
 nav:
   - Home: index.md
   - Emby Server:
+      - Overview: movie-pipeline/index.md
       - Emby Setup: movie-pipeline/emby/setup.md
       - Ripping (MakeMKV): movie-pipeline/makemkv/ripping.md
       - Compression (HandBrake): movie-pipeline/handbrake/compression.md
@@ -16,7 +17,7 @@ nav:
       - Overview: linux-learnings/index.md
       - SSH and Navigation: linux-learnings/ssh-navigation.md
   - Networking:
-      - Pi-hole: networking/pi-hole.md
+      - Pi-hole: networking/pihole.md
 theme: 
   name: material
   favicon: images/favicon.png
