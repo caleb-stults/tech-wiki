@@ -21,7 +21,7 @@ This is assuming you do not want your Emby instance exposed to the open Internet
 5. Then make a static route for the emby tailscale IP to point to this server you ran these commands on.
 
 ## Tailscale Installation (Optional)
-I now have Tailscale installed as a Docker container, but I did have it bare-metal to being. Both instructions are below.
+I now have Tailscale installed as a Docker container, but I did have it bare-metal to begin. Both instructions are below.
 
 ### Method 1: Bare-Metal
 1. **Installation:**

@@ -1,13 +1,13 @@
 ## Homelab Maintenance
 
-# Homelab Maintenance Philosophy
-The `homelab-maintenance` repository is the "Control Plane" for my home infrastructure. Rather than manually updating servers or tweaking configurations, this repository allows me to manage the environment as code.
+# Overview
+This is so I can (attempt) to be hands-off in updating my homelab infrastructure, from the hardware to the software. I utilize Ansible on my local machine to orchestrate all this. I'm still struggling to get the firmware on my access point and router to work as intended, but otherwise this works fairly well. Here is my [Homelab Maintenance Repository](https://github.com/caleb-stults/homelab-maintenance) if you want to look at the actual yaml files.
 
-## Why this repository is necessary
-1. **Consistency:** Ensures every node in the cluster is configured identically, eliminating "configuration drift."
-2. **Reproducibility:** If a host fails, I can rebuild it from scratch by running the playbooks, rather than troubleshooting individual settings.
-3. **Auditability:** Every change to the infrastructure is version-controlled, allowing me to see exactly when and why a configuration was altered.
-4. **Efficiency:** Automates repetitive tasks (patching, user creation, security hardening) across the entire lab with a single command.
-
-## How to use this Wiki
-Use this wiki to understand the *workflow* and *reasoning* behind the configurations. When you are ready to apply changes, refer to the [Homelab Maintenance Repository](https://github.com/caleb-stults/homelab-maintenance) for the source playbooks.
+# Playbooks
+| Playbook File | Category | Description |
+| :--- | :--- | :--- |
+| `network_check.yaml` | Network | Performs audits on firmware versions across the infrastructure. |
+| `network_controller.yaml` | Network | Manages the Unifi and Pihole installations as well as OS updates on the server |
+| `network_hardware.yaml` | Network | Orchestrates firmware deployments for Ubiquiti hardware. |
+| `media_server.yaml` | Systems | Manages the Tailscale and Emby installations as well as OS updates on the server |
+| `synology_nas.yaml` | Storage | Executes API checks and maintenance tasks for the NAS. |
