@@ -32,7 +32,7 @@ java -version
     * Open MakeMKV.
     * Go to View > Preferences > General.
     * Under "Java executable location", ensure it points to the `java.exe` file (`typically C:\Program Files\Eclipse Adoptium\jdk-x.x.x\bin\java.exe`).
-    * *This is the screen for setting up the Java environment in MakeMKV* ![](../../images/makemkv-java.png)
+    * *This is the screen for setting up the Java environment in MakeMKV* ![](../../images/makemkv-java.PNG)
 ### Fedora
 On Fedora, you should use `openjdk` from the official repositories.
 1. **Install:** Open your terminal and run:
