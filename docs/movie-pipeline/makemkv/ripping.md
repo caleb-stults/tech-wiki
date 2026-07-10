@@ -17,3 +17,33 @@ I use MakeMKV to create a .mkv containter of the film or show I'm wanting. I jus
 ![Select your local machine path to save the file](../../images/makemkv-path.png).
 * *Check the Enable Internet access box to bring in new decryption keys*
 ![Check the Enable Internet access box to bring in new decryption keys](../../images/makemkv-internet.png)
+
+## Setting up Java Environment (Optional)
+MakeMKV requires a Java Runtime Environment (JRE) to properly process Blu-ray menus or for combating playlist obfuscation. You do not need the JDK unless you are doing more Java work. Instructions for Windows and Linux (Fedora) are listed below.
+
+### Windows
+1. **Download:** Visit the [Adoptium Temurin](https://adoptium.net/temurin/releases) website or [Oracle Java](https://www.oracle.com/java/technologies/downloads/) and download the latest JRE or JDK installer (Windows x64).
+2. **Install:** Run the installer. Ensure that **"Add to PATH"** is selected during the installation process.
+3. **Verify:** Open Command Prompt and type the following to ensure it is detected:
+```dos
+java -version
+```
+4. **Configure MakeMKV:**
+    * Open MakeMKV.
+    * Go to View > Preferences > General.
+    * Under "Java executable location", ensure it points to the `java.exe` file (`typically C:\Program Files\Eclipse Adoptium\jdk-x.x.x\bin\java.exe`).
+    * *This is the screen for setting up the Java environment in MakeMKV* ![](../../images/makemkv-java.png)
+### Fedora
+On Fedora, you should use `openjdk` from the official repositories.
+1. **Install:** Open your terminal and run:
+```bash
+sudo dnf install java-latest-openjdk
+```
+2. **Verify:**
+```bash
+java -version
+```
+3. **Configure MakeMKV:**
+    * Open MakeMKV.
+    * Go to View > Preferences > General.
+    * Under "Java executable location", you can usually leave this blank if Java is in your path, or explicitly point it to the binary (usually `/usr/bin/java`).
