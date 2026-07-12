@@ -9,16 +9,27 @@ curl -fsSL https://get.docker.com | sh
 sudo usermod -aG docker $USER
 ```
 2. **Deploy Emby:**
-Create a `docker-compose.yml` file:
+First, create a `.env` file in your repository directory to define your environment-specific paths:
+
+```bash
+LOCAL_CONFIG=/var/lib/emby
+MEDIA_LIBRARY=/mnt/media
+```
+
+Then, create a `docker-compose.yml` file using variable syntax:
 ```yaml
 services:
   emby:
-    image: emby/embyserver:4.9.5.0
+    image: emby/embyserver: latest
     container_name: emby
     network_mode: host
     volumes:
-      - /path/to/config:/config
-      - /path/to/nas:/mnt/share
+      - ${LOCAL_CONFIG}:/config
+      - ${MEDIA_LIBRARY}:/mnt/share
+    devices:
+        - /dev/dri:/dev/dri
+    environment:
+        - TZ=Your/Timezone
     restart: unless-stopped
 ```
 3. **Start the container:**
