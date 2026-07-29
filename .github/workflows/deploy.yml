@@ -22,7 +22,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
       - name: Install Linters
         run: |
@@ -33,16 +32,14 @@ jobs:
           markdownlint-cli2 "**/*.md" "#site"
           yamllint .
 
-      - name: Install and Run Trivy Natively
-        run: |
-          # Install Trivy officially via apt
-          sudo apt-get install -y wget apt-transport-https gnupg lsb-release
-          wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
-          echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/trivy.list
-          sudo apt-get update && sudo apt-get install -y trivy
-
-          # Run filesystem scan cleanly without action wrapper restrictions
-          trivy fs --security-checks config,secret --severity CRITICAL,HIGH .
+      - name: Run Trivy Security Scanner
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'table'
+          severity: 'CRITICAL,HIGH'
+          scanners: 'config,secret'
 
   build:
     needs: validate-and-scan
