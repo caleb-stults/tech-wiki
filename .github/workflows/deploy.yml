@@ -34,14 +34,12 @@ jobs:
           yamllint .
 
       - name: Run Trivy Security Scanner
-        uses: aquasecurity/trivy-action@v0.36.0
+        uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
           scan-ref: '.'
           format: 'table'
           severity: 'CRITICAL,HIGH'
-          # Disables language/dependency parsing so it doesn't look for requirements.txt
-          scanners: 'config,secret'
 
   build:
     needs: validate-and-scan
