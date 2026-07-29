@@ -1,14 +1,48 @@
 name: Deploy MkDocs
+
 on:
   push:
     branches:
       - main
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 jobs:
+  validate-and-scan:
+    name: Lint & Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Linters
+        run: |
+          pip install markdownlint-cli2 yamllint
+
+      - name: Run Markdown and YAML Linters
+        run: |
+          markdownlint-cli2 "**/*.md" "#site"
+          yamllint .
+
+      - name: Run Trivy Vulnerability Scanner
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'table'
+          severity: 'CRITICAL,HIGH'
+
   build:
+    needs: validate-and-scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,6 +55,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './site'
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
