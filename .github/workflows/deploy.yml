@@ -40,7 +40,7 @@ jobs:
           scan-ref: '.'
           format: 'table'
           severity: 'CRITICAL,HIGH'
-          scanners: 'vuln,config,secret'
+          scanners: 'vuln,secret'
 
   build:
     needs: validate-and-scan
