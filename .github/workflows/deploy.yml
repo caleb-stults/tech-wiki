@@ -34,15 +34,14 @@ jobs:
           yamllint .
 
       - name: Run Trivy Security Scanner
-        run: |
-          # Install Trivy CLI directly to bypass action wrapper file-matching requirements
-          sudo apt-get install -y wget apt-transport-https gnupg lsb-release
-          wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/s-bin/trivy.gpg > /dev/null
-          echo "deb [signed-by=/usr/s-bin/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/trivy.list
-          sudo apt-get update && sudo apt-get install -y trivy
-          
-          # Run filesystem scan cleanly without dependency file errors
-          trivy fs --security-checks config,secret .
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'table'
+          severity: 'CRITICAL,HIGH'
+          # Disables language/dependency parsing so it doesn't look for requirements.txt
+          scanners: 'config,secret'
 
   build:
     needs: validate-and-scan
