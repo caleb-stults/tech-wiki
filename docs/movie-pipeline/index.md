@@ -20,5 +20,5 @@ This documentation is organized by the stages of the media workflow:
     *   **[Library Management](emby/library-management.md)**: Metadata, naming conventions, and file organization strategies.
     *   **[Remote Access](emby/tailscale.md)**: Secure remote streaming via Tailscale, ensuring your media is accessible without exposing services to the public internet.
 
-4.  **[Addtional Resources](emby/additional-resources.md)**
+4.  **[Addtional Resources](emby/additional-resources.md)**:
     Some extra materials for fringe cases or to investigate further.
