@@ -9,6 +9,7 @@ nav:
       - Compression (HandBrake): movie-pipeline/handbrake/compression.md
       - Emby Remote Access: movie-pipeline/emby/tailscale.md
       - Library Management: movie-pipeline/emby/library-management.md
+      - Additional Resources: movie-pipeline/emby/additional-resources.md
   - Homelab Maintenance:
       - Overview: homelab-maintenance/index.md
       - Workflows: homelab-maintenance/workflow.md

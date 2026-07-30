@@ -11,8 +11,8 @@ permissions:
   id-token: write
 
 jobs:
-  validate-and-scan:
-    name: Lint & Security Scan
+  lint:
+    name: Lint Markdown & YAML
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -34,10 +34,16 @@ jobs:
           npm install -g markdownlint-cli2
 
       - name: Run Markdown and YAML Linters
-        continue-on-error: true
         run: |
           markdownlint-cli2 "**/*.md" "#site"
           yamllint .
+
+  security-scan:
+    name: Trivy Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Run Trivy Security Scanner
         uses: aquasecurity/trivy-action@v0.36.0
@@ -49,7 +55,7 @@ jobs:
           scanners: 'config,secret'
 
   build:
-    needs: validate-and-scan
+    needs: [lint, security-scan] # Wait for both to complete
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -19,3 +19,6 @@ This documentation is organized by the stages of the media workflow:
     This details how to set up your Emby server so you can actually watch these files on your phone, computer, or TV.
     *   **[Library Management](movie-pipeline/emby/library-management.md)**: Metadata, naming conventions, and file organization strategies.
     *   **[Remote Access](movie-pipeline/emby/tailscale.md)**: Secure remote streaming via Tailscale, ensuring your media is accessible without exposing services to the public internet.
+
+4.  **[Addtional Resources](movie-pipeline/emby/additional-resources.md)**
+    Some extra materials for fringe cases or to investigate further.
