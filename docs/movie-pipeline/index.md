@@ -9,16 +9,16 @@ Emby isn't always talked about between it, Plex, and Jellyfin, but I find it to 
 
 This documentation is organized by the stages of the media workflow:
 
-1.  **Ripping ([MakeMKV](movie-pipeline/makemkv/ripping.md))**:
+1.  **Ripping ([MakeMKV](makemkv/ripping.md))**:
     This is what allows you to get the file off of your disc unencrypted and uncompressed. You will also find instructions on how to flash your drive for 4k discs if desired.
 
-2.  **Compressing ([Handbrake](movie-pipeline/handbrake/compression.md))**:
+2.  **Compressing ([Handbrake](handbrake/compression.md))**:
     Raw files are transcoded to optimize how much storage is used. This step can be skipped if you want to store the raw files. Be warned though, with 4k files the storage adds up quickly.
 
-3.  **Watching ([Emby Setup](movie-pipeline/emby/setup.md))**:
+3.  **Watching ([Emby Setup](emby/setup.md))**:
     This details how to set up your Emby server so you can actually watch these files on your phone, computer, or TV.
-    *   **[Library Management](movie-pipeline/emby/library-management.md)**: Metadata, naming conventions, and file organization strategies.
-    *   **[Remote Access](movie-pipeline/emby/tailscale.md)**: Secure remote streaming via Tailscale, ensuring your media is accessible without exposing services to the public internet.
+    *   **[Library Management](emby/library-management.md)**: Metadata, naming conventions, and file organization strategies.
+    *   **[Remote Access](emby/tailscale.md)**: Secure remote streaming via Tailscale, ensuring your media is accessible without exposing services to the public internet.
 
-4.  **[Addtional Resources](movie-pipeline/emby/additional-resources.md)**
+4.  **[Addtional Resources](emby/additional-resources.md)**
     Some extra materials for fringe cases or to investigate further.
