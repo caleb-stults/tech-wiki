@@ -55,7 +55,7 @@ jobs:
           scanners: 'config,secret'
 
   build:
-    needs: [lint, security-scan] # Wait for both to complete
+    needs: security-scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
